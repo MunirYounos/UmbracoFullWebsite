@@ -1,4 +1,5 @@
 /*============Logs=======*/
+Login with these credentials to the umbraco admin and created users inside Umbraco to see how it is made:
 Umbraco Admin logs:
 		-email: neeewbi@gmail.com
 		-pass: 2NeeebiNeeebi
