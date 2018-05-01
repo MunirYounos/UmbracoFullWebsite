@@ -8,4 +8,4 @@ Umbraco Active Member:
 Umraco Guest Memeber: 
 		-email: tim@gmail.com
 		-pass: 1234567tim
-Bibucket link: 
+github link: https://github.com/githubmunir/UmbracoFullWebsite
