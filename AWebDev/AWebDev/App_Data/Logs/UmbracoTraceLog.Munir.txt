@@ -991,3 +991,23 @@ _shutDownStack=   at System.Environment.GetStackTrace(Exception e, Boolean needF
  2018-05-01 11:42:30,820 [P57732/D4/T52] INFO  Umbraco.Web.ExamineStartup - Examine shutting down
  2018-05-01 11:42:30,835 [P57732/D4/T52] INFO  Umbraco.Web.ExamineStartup - Complete (took 10ms)
  2018-05-01 11:42:30,835 [P57732/D4/T52] INFO  Umbraco.Core.MainDom - Released MainDom.
+ 2018-05-01 11:43:00,910 [P57732/D4/T6] INFO  Umbraco.Core.UmbracoApplicationBase - Application shutdown. Details: UnloadAppDomainCalled
+
+_shutDownMessage=User code called UnloadAppDomain
+HostingEnvironment initiated shutdown
+HostingEnvironment caused shutdown
+
+_shutDownStack=   at System.Environment.GetStackTrace(Exception e, Boolean needFileInfo)
+   at System.Environment.get_StackTrace()
+   at System.Web.Hosting.HostingEnvironment.InitiateShutdownInternal()
+   at System.Web.Hosting.HostingEnvironment.InitiateShutdownWithoutDemand()
+   at System.Web.HttpRuntime.ShutdownAppDomain(String stackTrace)
+   at System.Web.HttpRuntime.UnloadAppDomain()
+   at Umbraco.Core.Manifest.ManifestWatcher.FswChanged(Object sender, FileSystemEventArgs e)
+   at System.IO.FileSystemWatcher.OnChanged(FileSystemEventArgs e)
+   at System.IO.FileSystemWatcher.NotifyFileSystemEventArgs(Int32 action, String name)
+   at System.IO.FileSystemWatcher.CompletionStatusChanged(UInt32 errorCode, UInt32 numBytes, NativeOverlapped* overlappedPointer)
+   at System.Threading._IOCompletionCallback.IOCompletionCallback_Context(Object state)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading._IOCompletionCallback.PerformIOCompletionCallback(UInt32 errorCode, UInt32 numBytes, NativeOverlapped* pOVERLAP)
