@@ -1,0 +1,30 @@
+/**
+ * Base settings
+ **/
+@import url('https://fonts.googleapis.com/css?family=Bitter:400,400i,700');
+
+html {
+	box-sizing: border-box;
+	font-size: 10px;
+}
+
+*,
+*:before,
+*:after {
+	box-sizing: inherit;
+}
+
+body {
+	height: 100%;
+	font-size: 1.3rem;
+	font-family: $body;
+	line-height: 1.5;
+	font-weight: 400;
+	background: $offwhite;
+	color: $colour-text;
+	-ms-text-size-adjust: 100%;
+	-webkit-text-size-adjust: 100%;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	text-rendering: optimizeLegibility;
+}

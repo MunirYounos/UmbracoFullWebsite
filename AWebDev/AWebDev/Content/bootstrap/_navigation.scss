@@ -1,0 +1,309 @@
+﻿
+/**
+ * Widgets
+ * ================================================== */
+/**
+ * Navigation
+ **/
+.nav {
+    /**
+	 * Mobile menu panel
+	 **/
+    /**
+	 * Mobile menu toggle
+	 **/
+}
+
+.nav__list {
+    list-style: none;
+}
+
+.nav__item {
+    position: relative;
+}
+
+@media (min-width: 768px) {
+    .nav__item {
+        float: left;
+    }
+}
+
+.nav__link {
+    display: block;
+    padding: 1.5rem;
+    line-height: 1;
+    white-space: nowrap;
+    font-size: 2.2rem;
+    font-weight: 500;
+    letter-spacing: .3rem;
+    text-transform: uppercase;
+}
+
+.nav__link:hover {
+    text-decoration: none;
+    color: #252525;
+}
+
+.nav__link:hover > ul.nav__dropdown li{
+     display: none !important;
+}
+
+@media (min-width: 768px) {
+    .nav__link {
+        padding: 1rem 2rem;
+        margin-left: 1.5rem;
+        color: #252525;
+    }
+
+    .nav__link:after {
+        content: '';
+        position: absolute;
+        top: 80%;
+        left: 4.5rem;
+        background: #1a1b47;
+        width: -webkit-calc(100% - 8rem);
+        width: calc(100% - 8rem);
+        height: .4rem;
+        -webkit-transition: .6s ease all;
+        transition: .6s ease all;
+        -webkit-transform: scale(0);
+        -ms-transform: scale(0);
+        transform: scale(0);
+    }
+}
+
+@media (max-width: 767px) {
+    .is-active > .nav__link, .nav__link:hover {
+        background: indianred;
+        color: #252525;
+    }
+}
+
+@media (min-width: 768px) {
+    .is-active > .nav__link:after, .nav__link:hover:after {
+        -webkit-transform: scale(1);
+        -ms-transform: scale(1);
+        transform: scale(1);
+    }
+}
+
+.nav__link-caret {
+    display: inline-block;
+    margin-left: .3rem;
+}
+
+.nav__link-caret::before {
+    content: '\f107';
+}
+
+.nav__dropdown {
+    display: none;
+    list-style: none;
+    background-color: #252525;
+}
+
+@media (min-width: 768px) {
+    .nav__dropdown {
+        position: absolute;
+        z-index: 9999;
+        top: 100%;
+        left: 0;
+        min-width: 100%;
+        background-color: #000;
+    }
+}
+
+.is-open > .nav__dropdown {
+    display: block;
+}
+
+.nav__dropdown .nav__item {
+    float: none;
+}
+
+@media (max-width: 767px) {
+    .nav--mobile {
+        position: fixed;
+        z-index: 8888;
+        top: 9.7rem;
+        left: 0;
+        height: -webkit-calc(100% - 9.7rem);
+        height: calc(100% - 9.7rem);
+        width: 100%;
+        -webkit-transform: translateX(-100%);
+        -ms-transform: translateX(-100%);
+        transform: translateX(-100%);
+        -webkit-transition: all .6s ease;
+        transition: all .6s ease;
+        background: #eaeae1;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .nav--mobile.is-open {
+        -webkit-transform: translateX(0);
+        -ms-transform: translateX(0);
+        transform: translateX(0);
+    }
+
+    body.is-fixed {
+        overflow: hidden;
+        position: fixed;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.nav-toggle {
+    display: block;
+    position: absolute;
+    z-index: 9999;
+    top: 30%;
+    right: 1.5rem;
+    -webkit-transform: translateY(-49.9%);
+    -ms-transform: translateY(-49.9%);
+    transform: translateY(-49.9%);
+    padding-top: 1.1rem;
+    padding-bottom: 1.1rem;
+    cursor: pointer;
+}
+
+@media (max-width: 767px) {
+    .nav-toggle {
+        display: none !important;
+    }
+}
+
+.nav-toggle__label {
+    display: inline-block;
+    color: #d5ac55;
+}
+
+.nav-toggle__icon {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    width: 2.5rem;
+    height: 0.3rem;
+    background: #d5ac55;
+    -webkit-transition: all .3s ease;
+    transition: all .3s ease;
+}
+
+.nav-toggle__icon::before, .nav-toggle__icon::after {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 0.3rem;
+    background: #d5ac55;
+    -webkit-transition: all .3s ease;
+    transition: all .3s ease;
+}
+
+.nav-toggle__icon::before {
+    bottom: -.7rem;
+}
+
+.nav-toggle__icon::after {
+    top: -.7rem;
+}
+
+body.is-fixed .nav-toggle__icon {
+    background: transparent;
+}
+
+body.is-fixed .nav-toggle__icon::before {
+    top: 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+body.is-fixed .nav-toggle__icon::after {
+    top: 0;
+    -webkit-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
+
+/**
+ * Share and like buttons
+ **/
+.share,
+.like {
+    text-align: left;
+    height: 2rem;
+}
+
+.share__button,
+.like__button {
+    line-height: 2rem;
+    height: inherit;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.share__button + .share__button,
+.like__button + .share__button, .share__button + .like__button,
+.like__button + .like__button {
+    margin-left: 1rem;
+}
+
+.lazy {
+    opacity: 0;
+    -webkit-transition: all .3s ease;
+    transition: all .3s ease;
+}
+
+.lazy.has-loaded {
+    opacity: 1;
+}
+
+.lazy-wrapper {
+    position: relative;
+    z-index: 1;
+}
+
+.lazy-wrapper:after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -2.5rem;
+    margin-left: -2.5rem;
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
+    border: .3rem solid transparent;
+    border-top-color: black;
+    -webkit-transition: opacity 0.75s cubic-bezier(0.55, 0, 0.1, 1);
+    transition: opacity 0.75s cubic-bezier(0.55, 0, 0.1, 1);
+    z-index: -1;
+    -webkit-animation: spinner 1.5s linear infinite;
+    animation: spinner 1.5s linear infinite;
+}
+
+@-webkit-keyframes spinner {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes spinner {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}

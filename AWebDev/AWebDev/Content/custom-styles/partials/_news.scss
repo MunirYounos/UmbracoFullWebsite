@@ -1,0 +1,91 @@
+//category section
+#news{
+  margin-top: 1rem;
+}
+.newsT{
+  padding:0px 2px;
+  margin: 0px;
+
+  &-mainTitle{
+      font-size:2.5rem;
+      padding: 2rem 0;
+      font-weight: 900;
+      text-transform: uppercase;
+      text-align: center;
+      color: $mainColor;
+     }
+  }
+
+.news {
+    &-main {
+        margin: 0rem;
+        padding: 0rem;
+        box-sizing: border-box;
+        transition: 1s ease all;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+    &-contain {
+        padding: .5rem;
+    }
+
+    &-wrap {
+        background: $white;
+        border: 1rem solid $white;
+        margin-bottom: .5rem;
+        box-sizing: border-box;
+        overflow: hidden;
+        @include shadow;
+
+        &-top {
+            transition: all .5s ease-in-out;
+
+
+            &:hover {
+                transform: scale(1.05);
+            }
+        }
+
+
+        &-body {
+            padding: 2rem;
+
+            &-title {
+                font-size: 1.8rem;
+                font-weight: 900;
+                text-transform: uppercase;
+                color: $gray;
+                padding: 1rem 0;
+            }
+        }
+
+        &-date{
+            position: absolute;
+            left: 1.5rem;
+            top: 1.5rem;
+            font-size: 1.1rem;
+            font-weight: 500;
+            background: rgba($mainColor, .9);
+            padding: .5rem 1rem;
+            color: $white;
+        }
+    }
+}
+
+.btn-carousel {
+    color: $mainColor;
+    font-size: 1.5rem;
+    border: .3rem solid $rose;
+    margin-top: 2rem;
+    transition: .5s ease-in-out all;
+
+    &:hover {
+        background: $rose;
+        color: $white;
+        border: .3rem solid $gray;
+    }
+}
+

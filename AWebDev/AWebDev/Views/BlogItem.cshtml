@@ -1,0 +1,35 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage<ContentModels.BlogItem>
+@using ContentModels = Umbraco.Web.PublishedContentModels;
+@{
+	Layout = "MasterPage.cshtml";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="blog">
+            <div class="blog-post">
+ 
+     
+                <div class="blog-post-image">
+                    @{ 
+                        var blogImage = Model.Content.GetPropertyValue<IPublishedContent>("blogImage");
+                        if (blogImage !=null)
+                        {
+                           <img src = "@(blogImage.Url)? width=800&height=400&mode=crop&anchor=center" alt = "@Model.Content.BlogTitle" class="blog-post-image-self" />
+                        }
+                    }
+
+                </div>
+
+                <h2 class="blog-post-title">@Model.Content.BlogTitle</h2>
+          
+                <div class="blog-post-body">
+                    <p>@Model.Content.BlogBodyText</p>
+                </div>
+                <div class="blog-post-footer">
+                    <span class="blog-post-date">@Model.Content.BlogDate</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,30 @@
+﻿
+/**
+ * Components
+ **/
+/**
+ * Buttons
+ **/
+.btn, .gform_button {
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    border: none;
+    -webkit-appearance: none;
+    cursor: pointer;
+    -webkit-transition: all .3s ease;
+    transition: all .3s ease;
+}
+
+.btn:hover > i, .gform_button:hover > i {
+    -webkit-transform: translateX(0.5rem);
+    -ms-transform: translateX(0.5rem);
+    transform: translateX(0.5rem);
+}
+
+.btn > i, .gform_button > i {
+    padding-left: .5rem;
+    -webkit-transition: -webkit-transform .3s ease;
+    transition: -webkit-transform .3s ease;
+    transition: transform .3s ease;
+    transition: transform .3s ease, -webkit-transform .3s ease;
+}

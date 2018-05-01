@@ -1,0 +1,165 @@
+﻿
+/**
+ * Gravity forms
+ **/
+/**
+ * Form wrapper
+ **/
+.gform_wrapper {
+    margin: 0 !important;
+    max-width: none !important;
+}
+
+.gform_body {
+    width: 100% !important;
+}
+
+.gform_fields {
+    list-style: none;
+    padding-left: 0;
+}
+
+.gform_title {
+    font-size: 3rem !important;
+    font-weight: 400 !important;
+}
+
+.gform_button {
+    background: red;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+    color: #fff;
+}
+
+.gform_button:hover {
+    background: #d60000;
+}
+
+.gform_button:active {
+    background: #c20000;
+}
+
+/**
+ * Form fields
+ **/
+.gfield {
+    margin-bottom: 1.5rem;
+    padding-right: 0 !important;
+}
+
+.gfield_label {
+    display: none !important;
+    color: #fff;
+}
+
+.gfield_required {
+    color: #fff;
+}
+
+.gfield_description {
+    padding-right: 0 !important;
+    padding-left: 0 !important;
+}
+
+.gfield input[type="email"],
+.gfield input[type="text"],
+.gfield textarea {
+    display: block;
+    width: 100% !important;
+    padding: 0.8rem 0.8rem !important;
+    line-height: 1;
+    background: #000;
+    border: none;
+    border-bottom: 0.1rem solid transparent;
+    -webkit-appearance: none;
+    border-radius: 0;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+    color: #fff;
+}
+
+.gfield input[type="email"]:hover,
+.gfield input[type="text"]:hover,
+.gfield textarea:hover {
+    background: red;
+    color: #fff;
+    border-color: transparent;
+}
+
+.gfield input[type="email"]:focus,
+.gfield input[type="text"]:focus,
+.gfield textarea:focus {
+    background: #cc0000;
+    color: #fff;
+    border-color: transparent;
+}
+
+/**
+ * Validations
+ **/
+.validation_error {
+    color: #c34e4e !important;
+    text-align: left !important;
+    border-top: none !important;
+    border-bottom: none !important;
+    padding: 0 !important;
+}
+
+.gfield_error {
+    min-width: 100% !important;
+    border: none !important;
+    padding: 0 !important;
+    background: transparent !important;
+}
+
+.gfield_error .gfield_label,
+.gfield_error .gfield_required {
+    color: #c34e4e !important;
+}
+
+.gfield_error .validation_message {
+    color: #c34e4e !important;
+    font-size: 1.2rem !important;
+}
+
+.gfield_error input[type="email"],
+.gfield_error input[type="text"],
+.gfield_error textarea {
+    border: none !important;
+    border: 0.2rem solid #c34e4e !important;
+}
+
+/**
+ * Mailchimp
+ **/
+.mc4wp-form p + .mc4wp-form p {
+    margin-top: 1rem;
+}
+
+.mc4wp-form input[type="text"],
+.mc4wp-form input[type="email"] {
+    width: 100%;
+}
+
+.mc4wp-form input[type="submit"] {
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    border: none;
+    -webkit-appearance: none;
+    cursor: pointer;
+    -webkit-transition: all .3s ease;
+    transition: all .3s ease;
+}
+
+.mc4wp-form input[type="submit"]:hover > .fa {
+    -webkit-transform: translateX(0.5rem);
+    -ms-transform: translateX(0.5rem);
+    transform: translateX(0.5rem);
+}
+
+.mc4wp-form input[type="submit"] > .fa {
+    -webkit-transition: -webkit-transform .3s ease;
+    transition: -webkit-transform .3s ease;
+    transition: transform .3s ease;
+    transition: transform .3s ease, -webkit-transform .3s ease;
+}

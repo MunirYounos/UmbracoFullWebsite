@@ -1,0 +1,267 @@
+/**
+ * Navigation
+ **/
+$nav-header-height: 16rem;
+$nav-dropdown-bg: $rose;
+$nav-mobile-bg: $black;
+$nav-mobile-dropdown-bg: $white;
+
+
+.nav {
+    &-toggle__label {
+        display: inline-block;
+        color: $mainColor;
+    }
+
+    .nav-toggle__icon {
+        position: relative;
+        display: inline-block;
+        width: 2.5rem;
+        height: .3rem;
+        background: #222;
+        -webkit-transition: all .3s ease;
+        transition: all .3s ease;
+    }
+
+    .nav-toggle__icon, img {
+        vertical-align: middle;
+    }
+
+    &__list {
+        list-style: none;
+    }
+
+    &__item {
+        position: relative;
+        padding: .2rem 0rem;
+        display: block;
+
+        @include mq(sm) {
+            float: left;
+        }
+    }
+    // Dropdown
+    &__dropdown {
+        display: none;
+        list-style: none;
+        background-color: rgba($nav-mobile-dropdown-bg, 0.0);
+
+
+        @include mq(sm) {
+            position: absolute;
+            z-index: 99999999;
+            top: 100%;
+            left: 0;
+            min-width: 100%;
+        }
+        // Open state
+        .is-open > & {
+            display: block;
+        }
+        // Child items
+        .nav__item {
+            float: none;
+        }
+    }
+
+
+
+    &__link {
+        display: block;
+        padding: 0rem;
+        line-height: 1;
+        white-space: nowrap;
+        color: $mainColor;
+        font-size: 1.2rem;
+        font-weight: 500;
+        letter-spacing: .1rem;
+        text-transform: uppercase;
+
+
+        @include mq($until: sm) {
+            padding: 1.5rem 0rem 1.5rem 4rem;
+        }
+
+
+        & a {
+            display: block;
+            width: 100%;
+            cursor: pointer;
+        }
+
+        @include mq(md) {
+            padding: .8rem .4rem !important;
+        }
+
+
+        @include mq(sm) {
+            padding: 1rem 2rem;
+            margin-left: 1.5rem;
+            color: $mainColor;
+
+            &:after {
+                content: '';
+                position: absolute;
+                top: 80%;
+                left: 1.6rem;
+                background: $rose;
+                width: calc(100% - 2rem);
+                height: .2rem;
+                transition: .6s ease all;
+                transform: scale(0);
+            }
+        }
+        // Active/hover state
+        &:hover {
+            @include mq($until: sm) {
+                background: $rose;
+                color: $light_black;
+            }
+
+            @include mq(sm) {
+                &:after {
+                    transform: scale(1);
+                }
+                &>.is-open{
+                    display: none;
+                }
+            }
+        }
+        // Dropdown caret
+        &-caret {
+            display: inline-block;
+            margin-left: .3rem;
+
+            &::before {
+                content: '\f107';
+                @extend %icon;
+            }
+        }
+    }
+    /**
+	 * Mobile menu panel
+	 **/
+    &--mobile {
+        @include mq($until: sm) {
+            position: fixed;
+            z-index: 8888;
+            top: $nav-header-height;
+            left: 0;
+            height: calc(100% - #{$nav-header-height});
+            width: 100%;
+            transform: translateX(-100%);
+            transition: all .6s ease;
+            background: $offwhite;
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+
+
+            // Set body to fixed
+            @at-root {
+                body.is-fixed {
+                    overflow: hidden;
+                    position: fixed;
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+        }
+    }
+    /**
+	 * Mobile menu toggle
+	 **/
+    &-toggle {
+        display: block;
+        position: absolute;
+        z-index: 9999;
+        top: 30%;
+        right: 1.5rem;
+        transform: translateY(-49.9%);
+        padding-top: 1.1rem;
+        padding-bottom: 1.1rem;
+        cursor: pointer;
+
+        @include mq($until: sm) {
+        }
+
+
+        &__label {
+            display: inline-block;
+            color: $toggle-label-color;
+        }
+
+        &__icon {
+            position: relative;
+            display: inline-block;
+            vertical-align: middle;
+            width: $toggle-width;
+            height: $toggle-height;
+            background: $toggle-bg;
+            transition: all .3s ease;
+
+            &::before,
+            &::after {
+                content: '';
+                display: block;
+                position: absolute;
+                width: 100%;
+                height: $toggle-height;
+                background: $toggle-bg;
+                transition: all .3s ease;
+            }
+
+            &::before {
+                bottom: -.7rem;
+            }
+
+            &::after {
+                top: -.7rem;
+            }
+
+            body.is-fixed & {
+                background: transparent;
+
+                &::before {
+                    top: 0;
+                    transform: rotate(45deg);
+                }
+
+                &::after {
+                    top: 0;
+                    transform: rotate(-45deg);
+                }
+            }
+        }
+    }
+}
+
+
+@for $i from 1 through 12 {
+    .is-open ul li {
+        &:nth-child(#{$i}) {
+            animation-name: dropani;
+            animation-duration: 300ms * $i;
+            animation-timing-function: ease-in-out;
+            animation-fill-mode: forwards;
+            background-color: lighten($rose, 20%);
+
+        }
+    }
+}
+@keyframes dropani {
+   0% {
+        opacity: 0;
+        transform: rotateY(-90deg) translateY(3rem);
+
+    }
+
+   100% {
+
+         opacity: 1;
+        transform: rotateY(0deg) translateY(0rem);
+       
+    }
+}
+
+
+

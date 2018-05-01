@@ -1,0 +1,26 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage<ContentModels.Login>
+@using ContentModels = Umbraco.Web.PublishedContentModels;
+@{
+	Layout = "MasterPage.cshtml";
+}
+
+<div class="container">
+    <div class="rows">
+        <div class="login">
+            <div class="prelogin">
+                <h2 class="prelogin__header">
+                    @if (Members.GetCurrentLoginStatus().IsLoggedIn) // if a member is logged in, then the "Login" page will be called "Account"
+                      {
+                        <span class="prelogin__account">Account details</span>
+                    }
+                    // if a member is NOT logged in, then the "Login" page will be called Login page
+                    else
+                    {
+                        @CurrentPage.Name
+                    }
+                </h2>
+                @Html.Partial("loginForm")
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,11 @@
+/*============Logs=======*/
+Umbraco Admin logs:
+		-email: neeewbi@gmail.com
+		-pass: 2NeeebiNeeebi
+Umbraco Active Member:
+		-email: se@gmail.com
+		-pass: semantasemanta
+Umraco Guest Memeber: 
+		-email: tim@gmail.com
+		-pass: 1234567tim
+Bibucket link: 

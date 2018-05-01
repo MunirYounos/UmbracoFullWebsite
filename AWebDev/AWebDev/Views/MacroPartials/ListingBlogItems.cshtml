@@ -1,0 +1,42 @@
+﻿@inherits Umbraco.Web.Macros.PartialViewMacroPage
+
+
+@{
+
+    IEnumerable<IPublishedContent> newsItems = Umbraco.TypedContentAtRoot()
+    .First() //Root document
+    .Children() //Level 2 documents
+    .Where(x => x.DocumentTypeAlias == "blogPageTemplate")
+    .First() //Projects overview document
+    .Children() //Projects documents
+    .Where(x => x.HasValue("postStatus") &&
+    Umbraco.GetPreValueAsString(x.GetPropertyValue<int>("postStatus")) == "Published");
+}       
+
+            @foreach (var child in newsItems)
+            {
+            <!--start-block--->
+            <div class="news-contain col-sm-12 col-md-4">
+                <div class="news-wrap">
+                    <div class="news-wrap-top">
+                        <a class="news-wrap-top-link" href="@child.Url">
+
+                            @{
+                                var BlogImage = Umbraco.Media(child.GetPropertyValue("blogImage").ToString());
+                                if (BlogImage != null)
+                                {
+                            <img src="@(BlogImage.Url)?width=500&height=500&mode=crop&achor=center" alt="@child.GetPropertyValue("blogTitle")" />
+                            }
+                            }
+                        </a>
+                    </div>
+                    <div class="news-wrap-body">
+                        <a href="@child.Url"></a><h2 class="news-wrap-body-title">@child.GetPropertyValue("blogTitle")</h2></a>
+                        <p class="news-wrap-body-text">@Umbraco.Truncate(child.GetPropertyValue("blogBodyText").ToString(), 190, false)</p>
+                        <a href="@child.Url" class="btn btn-carousel">Read More..</a>
+                    </div>
+                    <div class="news-wrap-date">@child.GetPropertyValue("blogDate")</div>
+                </div>
+            </div>
+            <!---end-block-->
+            }

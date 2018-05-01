@@ -1,0 +1,40 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+	Layout = "MasterPage.cshtml";
+}
+<section id='topcontent' class="slider">
+    <div class="container">
+        <div class="slider__wrap ">
+            <div class="slider__list is-slider">
+                @Html.Partial("blogToSlider")
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="projectHead" id="projects">
+    <div class="container">
+        <div class="projects">
+            <h2 class="projects-mainTitle">New Projects</h2>
+        </div>
+        <div class="row">
+            <div class="projects-main">
+                @Html.Partial("ProjectItems")
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="news-section" id="news">
+    <div class="container">
+        <div class="newsT">
+            <h2 class="newsT-mainTitle">New in the Blog</h2>
+        </div>
+        <div class="rows">
+            <div class="news-main">
+               @Umbraco.RenderMacro("ListingBlogItems", new {numberOfNewsItems="3"})
+            </div>
+        </div>
+    </div>
+</section>

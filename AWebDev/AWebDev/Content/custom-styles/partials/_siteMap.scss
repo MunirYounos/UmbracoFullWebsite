@@ -1,0 +1,29 @@
+﻿/*siteMap styles*/
+
+.sitemap {
+    width: 100%;
+    display: block;
+    padding: 0rem;
+    float: left;
+    background: $white;
+    border: 4px solid $mainColor;
+
+    &__items {
+        display: block;
+        padding: 2rem 4rem;
+        font-size: 1.4rem;
+        font-family: $body;
+
+        & a {
+            color: $mainColor;
+            &:hover{
+                color: $rose;
+            }
+        }
+
+        &-level-3 {
+            background: $offwhite;
+            padding: 1rem;
+        }
+    }
+}

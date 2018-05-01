@@ -1,0 +1,94 @@
+/**
+ * Colours
+ **/
+
+$black: #000;
+$white: #fff;
+$offwhite:#eaeae1;
+$light_black:#252525;
+$gold_dark: #1a1b46;
+$gold_light: #1a1b46;
+$gold_mediam: #1a1b46;
+$green:#98cb2b;
+$gray:#888888;
+$gray-dark:#555;
+$gray-light:#ccc;
+$cream:#ded0c3;
+$offred: indianred;
+$danger: #e94040;
+//umbraco template colors-Aarhus web developers corportation
+$mainColor: #06000a;
+$rose: #e6af4b;
+$gray: #545454;
+$bodybg: #fff;
+
+
+$colour-text: $black;
+$colour-heading: $light_black;
+
+
+/**
+ * Section themes
+ * Classes are generated in _sections.scss
+ **/
+
+$section-themes: (
+	// black: (bg: $black, color: $white, header-color: $white),
+);
+
+
+/**
+ * Fonts
+ **/
+
+$body: 'Bitter', serif;
+$heading: 'Bitter', serif;
+
+
+
+/**
+ * Z-indexes
+ **/
+
+$z-nav-toggle: 900;
+$z-nav-mobile: 800;
+
+
+
+/**
+ * Mobile navigation toggle
+ **/
+
+$toggle-bg: $gold_dark;
+$toggle-label-color: $toggle-bg;
+$toggle-height: .3rem;
+$toggle-width: 2.5rem;
+
+
+
+/**
+ * Media queries - breakpoints
+ **/
+
+$grid-breakpoints: (
+	xs:	480px,
+	sm:	768px,
+	md:	992px,
+	lg:	1200px
+);
+
+
+
+/**
+ * Grid settings
+ **/
+
+$grid-columns: 12;
+$grid-gutter-width: 3rem;
+
+// Container widths
+$container-widths: (
+	sm: 75rem,
+	md: 97rem,
+	lg: 117rem
+);

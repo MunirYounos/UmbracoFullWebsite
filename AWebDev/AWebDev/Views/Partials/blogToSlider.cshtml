@@ -1,0 +1,27 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+    var page = Umbraco.Content(2165);
+}
+@foreach (var child in page.Children) 
+{ 
+     <div class="slider__item">
+        <div class="slider__cta">
+            <div class="slider__cta-caption">
+              <h2 class="slider__cta-title">@child.blogTitle</h2>
+              <p>@Umbraco.Truncate(@child.blogBodyText, 150)</p>
+              <a class="btn slider__cta-btn"href="@child.Url">know more <i class="slider__cta-btn-ar fa fa-caret-right"></i></a>
+            </div>
+        </div>
+        <div class="slider__item-imgOverlay"> </div>
+          @{
+                var LogoImage = child.blogImage;
+                if (LogoImage != null)
+                    {
+                      <img src="@(LogoImage.Url)?width=1200&height=600&mode=crop&anchor=center" alt="@child.blogTitle">
+                    }
+            }
+       
+
+      </div>
+}
+

@@ -1,0 +1,26 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage<ContentModels.BlogPageTemplate>
+@using ContentModels = Umbraco.Web.PublishedContentModels;
+@{
+	Layout = "MasterPage.cshtml";
+}
+
+<section class="news-section" id="news">
+    <div class="container">
+        <div class="blog-page">
+            @{
+                var blogImage = Model.Content.BlogPageImage;
+                if (blogImage != null)
+                {
+                    <img class="blog-page-image" src="@(blogImage.Url)?width=600&height=400&mode=crop&anchor=center" alt="blog image" />
+                }
+            }
+            <h2 class="blog-page-mainTitle">@Model.Content.BlogPageTitle</h2>
+            <div class="blog-page-bodyText">@Model.Content.BlogPageBodyText</div>
+        </div>
+        <div class="rows">
+            <div class="news-main">
+                @Umbraco.RenderMacro("ListingBlogItems", new {numberOfNewItems="3"})
+        </div>
+        </div>
+    </div>
+</section>

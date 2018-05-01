@@ -1,0 +1,592 @@
+﻿@charset "UTF-8";
+/**
+ * Collect awesome stuff
+ **/
+/**
+ * Utilities and dependencies
+ **/
+/**
+ * Colours
+ **/
+/**
+ * Section themes
+ * Classes are generated in _sections.scss
+ **/
+/**
+ * Fonts
+ **/
+/**
+ * Z-indexes
+ **/
+/**
+ * Mobile navigation toggle
+ **/
+/**
+ * Media queries - breakpoints
+ **/
+/**
+ * Grid settings
+ **/
+/**
+ * Media query mixin
+ * ================================================== */
+/**
+ * FontAwesome icons placeholder
+ **/
+@import url("https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,300i,700");
+
+.entry blockquote::before, .nav__link-caret::before {
+    display: inline-block;
+    vertical-align: middle;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    font-size: inherit;
+    line-height: inherit;
+    font-family: FontAwesome;
+    text-rendering: auto;
+    speak: none;
+    text-transform: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-transform: translate(0, 0);
+    -ms-transform: translate(0, 0);
+    transform: translate(0, 0);
+}
+
+/**
+ * Invisible text
+ **/
+/**
+ * Screen reader
+ **/
+/**
+ * Clearfix
+ **/
+/**
+ * Center block horizontally
+ **/
+/**
+ * Margins
+ **/
+/**
+ * Paddings
+ **/
+/**
+ * Overlay
+ **/
+/**
+ * Gallery overlay
+ **/
+/**
+ * Button background-color with hover and active based on color given
+ **/
+/**
+ * Image backgrounds
+ **/
+/**
+ * Grid system
+ * ================================================== */
+/**
+ * Grid framework
+ * ================================================== */
+/**
+ * Theme scaffolding
+ **/
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section, main {
+    display: block;
+}
+
+body {
+    line-height: 1;
+}
+
+ol, ul {
+    list-style: none;
+}
+
+blockquote, q {
+    quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/**
+ * Base settings
+ **/
+html {
+    box-sizing: border-box;
+    font-size: 10px;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+body {
+    height: 100%;
+    font-size: 1.6rem;
+    font-family: "Open Sans Condensed", sans-serif;
+    line-height: 1.5;
+    font-weight: 400;
+    background: #eaeae1;
+    color: #000;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+}
+
+/**
+ * Base typography
+ * ================================================== */
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Open Sans Condensed", sans-serif;
+    color: #252525;
+    -webkit-hyphens: auto;
+    -ms-hyphens: auto;
+    hyphens: auto;
+    line-height: 1.1;
+}
+
+h1 > a, h2 > a, h3 > a, h4 > a, h5 > a, h6 > a {
+    color: inherit;
+}
+
+h1, .h1 {
+    font-size: 2.8rem;
+}
+
+@media (min-width: 768px) {
+    h1, .h1 {
+        font-size: 3.2rem;
+    }
+}
+
+h2, .h2 {
+    font-size: 2.8rem;
+}
+
+@media (min-width: 768px) {
+    h2, .h2 {
+        font-size: 2.8rem;
+    }
+}
+
+h3, .h3 {
+    font-size: 2.2rem;
+}
+
+@media (min-width: 768px) {
+    h3, .h3 {
+        font-size: 2.4rem;
+    }
+}
+
+h4, .h4 {
+    font-size: 1.8rem;
+}
+
+@media (min-width: 768px) {
+    h4, .h4 {
+        font-size: 2rem;
+    }
+}
+
+h5, .h5 {
+    font-size: 1.8rem;
+}
+
+h6, .h6 {
+    font-size: 1.6rem;
+}
+
+em {
+    font-style: italic;
+}
+
+strong {
+    font-weight: bold;
+}
+
+a {
+    text-decoration: none;
+    -webkit-transition: all .3s ease;
+    transition: all .3s ease;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+.ir {
+    font: 0/0 a;
+    color: transparent;
+    text-shadow: none;
+}
+
+/**
+ * Class containing formatted elements
+ **/
+.entry {
+    /**
+	 * Headings
+	 **/
+    /**
+	 * Paragraphs and lists
+	 **/
+    /**
+	 * Tables
+	 **/
+    /**
+	 * Blockquote
+	 **/
+    /**
+	 * WordPress core classes
+	 **/
+}
+
+.entry__image {
+    padding-top: 0;
+    width: 100%;
+}
+
+@media (min-width: 992px) {
+    .entry__image {
+        -webkit-transform: translateY(-30%);
+        -ms-transform: translateY(-30%);
+        transform: translateY(-30%);
+    }
+}
+
+.entry__image-me {
+    border: 0.6rem solid #ccc;
+    -webkit-transition: 1s ease all;
+    transition: 1s ease all;
+}
+
+@media (min-width: 992px) {
+    .entry__image-me {
+        opacity: .4;
+        -webkit-transform: translateY(-20%);
+        -ms-transform: translateY(-20%);
+        transform: translateY(-20%);
+    }
+
+    .entry__image-me:hover {
+        opacity: 1;
+    }
+}
+
+.entry h1, .entry h2, .entry h3, .entry h4, .entry h5, .entry h6 {
+    padding-top: 1rem;
+    margin-bottom: .5rem;
+    color: inherit;
+}
+
+.entry p,
+.entry ol,
+.entry ul {
+    padding-top: .5rem;
+    margin-bottom: 1rem;
+}
+
+.entry ul,
+.entry ol {
+    padding-left: 3rem;
+}
+
+.entry ol {
+    list-style: decimal;
+}
+
+.entry ul {
+    list-style: disc;
+}
+
+.entry .table-wrapper {
+    -webkit-overflow-scroll: touch;
+    overflow-x: auto;
+}
+
+.entry table {
+    width: 100%;
+}
+
+.entry table tbody tr {
+    background: #000;
+    color: #fff;
+}
+
+.entry table tbody tr:nth-child(odd) {
+    background: #f00;
+}
+
+.entry table td,
+.entry table th {
+    padding: .5rem;
+    text-align: left;
+}
+
+.entry table th {
+    font-weight: bold;
+}
+
+.entry blockquote {
+    margin-top: .5rem;
+    position: relative;
+    padding-left: 3rem;
+}
+
+.entry blockquote::before {
+    content: '\f10d';
+    position: absolute;
+    top: .5rem;
+    left: 0;
+    font-size: 2rem;
+    color: #f00;
+}
+
+.entry blockquote p {
+    font-size: 1.25em;
+    font-style: italic;
+}
+
+.entry .alignnone {
+    padding-top: .5rem;
+    margin-bottom: 1.5rem;
+}
+
+.entry .aligncenter {
+    display: block;
+    padding-top: .5rem;
+    margin-right: auto;
+    margin-bottom: 1.5rem;
+    margin-left: auto;
+}
+
+.entry .alignright {
+    float: right;
+    margin: .5rem 0 1.5rem 1.5rem;
+}
+
+.entry .alignleft {
+    float: left;
+    margin: .5rem 1.5rem 1.5rem 0;
+}
+
+/**
+ * Form reset/basic styling
+ **/
+input,
+select,
+button,
+textarea {
+    display: inline-block;
+    font-size: inherit;
+    font-family: inherit;
+    line-height: inherit;
+    white-space: normal;
+    border-radius: 0;
+    outline: none;
+}
+
+textarea {
+    vertical-align: top;
+    overflow: auto;
+}
+
+input:not([type="radio"]):not([type="checkbox"]),
+button {
+    -webkit-appearance: none;
+}
+
+/**
+ * Placeholders
+ **/
+::-webkit-input-placeholder {
+    color: inherit;
+}
+
+:-moz-placeholder {
+    color: inherit;
+}
+
+::-moz-placeholder {
+    color: inherit;
+}
+
+:-ms-input-placeholder {
+    color: inherit;
+}
+
+::-webkit-search-decoration {
+    display: none;
+}
+
+/**
+ * Layout
+ **/
+/**
+ * Grid system
+ * Variables are found in _variables.scss
+ **/
+/**
+ * Containers
+ **/
+.container {
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+}
+
+.container:before, .container:after {
+    content: '';
+    display: table;
+}
+
+.container:after {
+    clear: both;
+}
+
+@media (min-width: 768px) {
+    .container {
+        width: 75rem;
+    }
+}
+
+@media (min-width: 992px) {
+    .container {
+        width: 97rem;
+    }
+}
+
+@media (min-width: 1200px) {
+    .container {
+        width: 117rem;
+    }
+}
+
+.container--flex {
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+}
+
+@media (min-width: 768px) {
+    .container--flex {
+        width: 75rem;
+    }
+}
+
+@media (min-width: 992px) {
+    .container--flex {
+        width: 97rem;
+    }
+}
+
+@media (min-width: 1200px) {
+    .container--flex {
+        width: 117rem;
+    }
+}
+
+.container-fluid {
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+}
+
+.container-fluid:before, .container-fluid:after {
+    content: '';
+    display: table;
+}
+
+.container-fluid:after {
+    clear: both;
+}
+
+.container-fluid--flex {
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+}
+
+/**
+ * Rows
+ **/
+.row {
+    margin-left: -1.5rem;
+    margin-right: -1.5rem;
+}
+
+.row:before, .row:after {
+    content: '';
+    display: table;
+}
+
+.row:after {
+    clear: both;
+}
+
+.row--flex {
+    margin-left: -1.5rem;
+    margin-right: -1.5rem;
+}
+
+.row--flex:after {
+    content: '';
+    -webkit-box-flex: 1;
+    -ms-flex: auto;
+    flex: auto;
+}

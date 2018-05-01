@@ -1,0 +1,53 @@
+/*
+Login styles
+*/
+
+.prelogin {
+    padding: 5rem;
+    background: $white;
+
+    &__header {
+        text-transform: uppercase;
+    }
+
+    &__ban {
+        text-transform: uppercase;
+        color: $danger;
+        &-info{
+            padding: 6rem 0rem;
+        }
+    }
+}
+
+.login{
+    background: $white;
+    padding: 5rem;
+    border: .4rem solid $mainColor;
+
+    &__inner{
+        padding: 2.5rem;
+    }
+
+    &__title{
+        font-family: $heading;
+        font-size: 4.5rem;
+        font-weight: 900;
+        text-align: center;
+        text-transform: uppercase;
+
+    }
+}
+
+nav__fa{
+    padding: .2rem 1rem;
+    color: $rose;
+}
+
+//Account details
+
+.afterlogins{
+    padding: 4rem 0rem;
+    & p{
+        padding: 1rem 0rem;
+    }
+}

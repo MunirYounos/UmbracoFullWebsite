@@ -1,0 +1,51 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@using Umbraco.Web
+
+
+
+@{
+    IEnumerable<IPublishedContent> projectItems = Umbraco.TypedContentAtRoot()
+    .First() //Root document
+    .Children() //Level 2 documents
+    .Where(x => x.DocumentTypeAlias == "projectsTemplate")
+    .First() //Projects overview document
+    .Children() //Projects documents
+    .Where(x => x.HasValue("projectStatus") &&
+    Umbraco.GetPreValueAsString(x.GetPropertyValue<int>("projectStatus")) == "Completed");
+
+
+    }
+
+    @foreach (var item in projectItems){
+
+    <!--block-start-->
+    <div class="projects-contain col-sm-12 col-md-4">
+        <div class="projects-wrap">
+            <div class="projects-top">
+
+
+                @{
+
+                    var proImage = Umbraco.Media(item.GetPropertyValue("proImage").ToString());
+                    if(proImage !=null){
+
+                <img src="@(proImage.Url)?width=500&height=400&mode=crop&anchor=center" alt="item.proTitle" />
+
+                }
+                }
+            </div>
+
+            <div class="projects-body">
+                <div class="projects-overlay">
+                    <a class="projects-body-titleLink" href="@item.Url"><h2 class="projects-body-title">@item.GetPropertyValue("proTitle")</h2></a>
+                    <div class="projects-body-text">@Umbraco.Truncate(item.GetPropertyValue("proDescription").ToString(), 100, false)</div>
+                    <a href="@item.Url" class="projects-body-link"><i class="fa fa-caret-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--block-end-->
+    }
+
+
+

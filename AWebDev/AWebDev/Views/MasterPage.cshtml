@@ -1,0 +1,86 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@using Umbraco.Web
+@{
+    Layout = null;
+}
+
+<!-- DOCTYPE -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <!-- Viewport Meta Tag -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="@Model.Content.GetPropertyValue("siteDescription")" />
+    <meta name="keywords" content="@Model.Content.GetPropertyValue("siteKeyWords")" />
+    <title>@Model.Content.GetPropertyValue("siteTitle")</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="~/Content/CSS/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css" />
+    <link rel="stylesheet" href="~/Content/CSS/customStyles.css" type="text/css" />
+</head>
+<body class="bodyBackground">
+        <header id="header" class="header" role="banner">
+            <div class="container">
+                <div class="header__logo">
+                        @{
+                            var LogoImage = Model.Content.GetPropertyValue<IPublishedContent>("siteLogo", recurse: true);
+                            if (LogoImage != null)
+                            {
+                                <img src="@LogoImage.Url" alt="@Model.Content.GetPropertyValue("siteTitle")" />
+                            }
+                        }
+
+                </div>
+
+                <a class="header__logo-text" href="#" title="@Model.Content.GetPropertyValue("logoTitle", recurse: true)" rel="home">
+                    @Model.Content.GetPropertyValue("logoTitle", recurse: true)
+            </a>
+            </div>
+
+            <!---navigation start-->
+            @Html.Partial("TopNavigation")
+            <!---Navigation end-->
+        </header>
+
+
+        @RenderBody()
+
+        <section id="footer">
+            <div class="container">
+                <div class="footer">
+                    <div class="footer-text">
+                        <h2 class="footer-mainTitle">Contact Us</h2>
+                        <div class="row">
+                            <div class="footer-contact col-sm-12 col-md-6">
+                                <p><strong>Address:</strong> adipiscing elit fusce vel.</p>
+                                <p><strong>Street:</strong> adipiscing elit fusce vel.</p>
+                                <p><strong>Email:</strong> emaiaddress@gmail.com</p>
+                                <p><strong>Telephon:</strong>45089894422345</p>
+                                <p><strong>Country:</strong> fusce vel.</p>
+                                <p><strong>Site Map:</strong></p>
+
+                            </div>
+                            <div class="footer-cta col-sm-12 col-md-6">
+                                <p>Tincidunt integer eu augue augue nunc elit dolor, luctus placerat scelerisque euismod, iaculis eu lacus nunc mi elit, vehicula ut laoreet ac, aliquam sit amet justo nunc tempor, metus vel.</p>
+                                <a href="/contact/" class="btn btn-footer">Get In Touch &rarr;</a>
+
+                            </div>
+                        </div>
+                        <div class="footer-hr"></div><br />
+                        <div class="footer-copy"><p><span class="footer-c">&copy; </span>All rights Reserved: <em id="date"><script>
+                            var date = new Date('Y');
+                            document.getElementById("date").innerHTML = date;
+                        </script></em></p></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    <!--endbody-->
+    <script src="~/Scripts/main.js">
+        var date = date.now();
+    </script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+</body>
+</html>

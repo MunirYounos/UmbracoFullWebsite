@@ -1,0 +1,168 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@*
+//Variables that give access to menu roots for each level 
+*@
+@{ var root = Model.Content.Site(); }
+  
+@{
+    //access to children
+    var selection = root.Children.Where(x => x.IsVisible()).ToArray();
+
+    var selectionChilds = Model.Content.AncestorOrSelf(1)
+    .Children.Where(x => x.DocumentTypeAlias != "projectsTemplate")
+    .First()
+    .Children
+    .Where(x => x.IsVisible());
+    
+    IEnumerable<IPublishedContent> projects = Umbraco.TypedContentAtRoot()
+    .First() //Root document
+    .Children() //Level 2 documents
+    .Where(x => x.DocumentTypeAlias == "projectsTemplate")
+    .First() //Projects overview document
+    .Children() //Projects documents
+    .Where(x => x.HasValue("projectStatus") && Umbraco.GetPreValueAsString(x.GetPropertyValue<int>("projectStatus")) == "Completed")
+    .Where(x => x.IsVisible()); // Only visible documents
+                                //.OrderByDescending(x => x.CreateDate); //Newest projects first
+
+    IEnumerable<IPublishedContent> blogs = Umbraco.TypedContentAtRoot()
+    .First() //Root document
+    .Children() //Level 2 documents
+    .Where(x => x.DocumentTypeAlias == "blogPageTemplate")
+    .First() //Projects overview document
+    .Children() //Projects documents
+    .Where(x => x.HasValue("postStatus") && Umbraco.GetPreValueAsString(x.GetPropertyValue<int>("postStatus")) == "Published")
+    .Where(x => x.IsVisible()); // Only visible documents
+                                //.OrderByDescending(x => x.CreateDate); //Newest projects first
+
+    
+
+}
+
+            <div id="header_menu" class="header__nav">
+                <div class="nav-toggle visible-xs">
+                  <!----   <span class="nav-toggle__label">Menu</span>
+               <span class="nav-toggle__icon"></span>-->
+                </div>
+                <nav class="nav" role="navigation">
+                    <div class="nav--mobile">
+                        <ul id="main-memu" class="nav__list">
+
+
+                            <li class="nav__item @Html.Raw(Model.Content.Id == root.Id ? " is-active" : "")">
+                                <a class="nav__link" href="/">Home</a>
+                            </li>
+
+
+                            <!--projects-->
+                            <li class=" has-dropdown nav__item nav__item--dropdown-list ">
+                                <a class="nav__link nav__dropdown-toggle" href="/all-projects/" role="button" aria- haspopup="true">Completed projects <i class="nav__link-caret"></i></a>
+                                <ul class="nav__dropdown" aria-hidden="false">
+                                    @foreach (var item in projects)
+                                    {
+                                        <li class="nav__item">
+                                            <a class="nav__link @Html.Raw(Model.Content.Id == root.Id ? " is-active" : "") " href="@item.Url">@item.Name</a>
+                                        </li>
+                                    }
+
+
+                                </ul>
+                            </li>
+
+                            <!--Blogs-->
+                            <li class="has-dropdown nav__item nav__item--dropdown-list ">
+                                <a class="nav__link nav__dropdown-toggle " href="/my-blog/" role="button" aria- haspopup="true">Blog <i class="nav__link-caret"></i></a>
+                                <ul class="nav__dropdown" aria-hidden="false">
+                                    @foreach (var item in blogs)
+                                    {
+                                        <li class="nav__item">
+                                            <a class="nav__link @Html.Raw(Model.Content.Id == root.Id ? " is-active" : "") " href="@item.Url">@item.Name</a>
+                                        </li>
+                                    }
+
+
+                                </ul>
+                            </li>
+
+
+                         @if (selection.Length > 0)
+                         {
+
+
+
+                             foreach (var page in selection)
+                             {
+
+                                 var isProtected = umbraco.library.IsProtected(page.Id, page.Path);
+                                 var loginAccess = umbraco.library.IsProtected(page.Id, page.Path)
+                                 && umbraco.library.HasAccess(page.Id, page.Path);
+
+
+
+                                 if (page.Children().Where(x => x.IsVisible()).Count() > 0 && !isProtected || loginAccess)
+                                 {
+                                                                 <!--projects-->
+                        
+                                         if (page.Name != "Projects")
+                                           {
+                                                foreach (var item in selectionChilds)
+                                                {
+                                                    <li class="nav__item">
+                                                        <a class="nav__link" href="@item.Url">@item.Name</a>
+                                                    </li>
+                                               }
+                                           }
+                                           else
+                                           {
+                                               foreach (IPublishedContent subMenuItem in projects)
+                                               {
+                                                   var subIsProtected = umbraco.library.IsProtected(subMenuItem.Id, subMenuItem.Path);
+                                                   var subLoginAccess = umbraco.library.IsProtected(subMenuItem.Id, subMenuItem.Path)
+                                                   && umbraco.library.HasAccess(subMenuItem.Id, subMenuItem.Path);
+                                                   if (!subIsProtected || subLoginAccess)
+                                                   {
+                                                    <li class="nav__item">
+                                                        <a class="nav__link" href="@subMenuItem.Url">@subMenuItem.Name</a>
+                                                    </li>
+                                                   }
+                                                }
+                                            }
+
+       
+                                 }
+                                 else
+                                 {
+                                     if (page.Name == "Login")
+                                     {
+                                         // if a member is logged in, then the "Login" item in navigation menu will appear as "Account"
+                                         if (Members.GetCurrentLoginStatus().IsLoggedIn)
+                                         {
+                                            <li class="nav__item @((Model.Content.Name == page.Name) ? "active" : null)">
+                                            <a class="nav__link" href="@page.Url">Your Account</a>
+                                       
+                                            </li>
+                                             }
+                                    // if a member is NOT logged in, then the "Login" item in navigation menu will appear as normal, "Login"
+                                    else
+                                    {
+                                    <li class="nav__item @((Model.Content.Name == page.Name) ? "active" : null)">
+                                    <a class="nav__link" href="@page.Url">@page.Name</a>
+                                    </li>
+                                    }
+                                    }
+                                    else
+                                    {
+                                    <li class="nav__item @((Model.Content.Name == page.Name) ? "active" : null)">
+                                    <a class="nav__link" href="@page.Url">@page.Name</a>
+                                    </li>
+                                    }
+                                 }
+
+                             }
+
+                         }
+
+                        </ul>
+                    </div>
+                </nav>
+
+            </div>

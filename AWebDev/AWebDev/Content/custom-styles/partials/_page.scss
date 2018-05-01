@@ -1,0 +1,39 @@
+.page {
+	// &__header {
+	// 	@include bg-size(cover);
+	// 	@include overlay($background: rgba($gray-light,.7));
+	//
+	// 	@include mq(sm) {
+	//
+	// 	}
+	//
+	// 	> * {
+	// 		position: relative;
+	// 		z-index: 10;
+	// 	}
+	// }
+
+	&__title {
+		font-size: 2.5rem;
+		font-weight: 700;
+		text-align: center;
+		padding-top: 4rem;
+		color: $light_black;
+		@include mq(sm){
+		font-size: 3.5rem;
+		padding-top: 6rem;
+		}
+	}
+
+	&__inner{
+		margin-top: 3rem;
+		font-size: 1.4rem;
+		font-weight: 300;
+		display: block;
+
+	}
+	&__image{
+		margin-bottom: 1rem;
+		display: inline-block;
+	}
+}

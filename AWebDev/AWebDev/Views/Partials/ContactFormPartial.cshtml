@@ -1,0 +1,62 @@
+﻿@model AWebDev.ViewModels.ContactForm
+@{
+    Layout = null;
+}
+
+@if (TempData["success"] == null)
+{
+
+
+
+    //display form here
+    using (Html.BeginUmbracoForm("HandleFormSubmit", "ContactFormSurface", new object { }, new { @class = "form" }))
+    {
+    <div class="form-group">
+        @Html.LabelFor(m => m.Name, new { @class = "form-control-label" })
+
+        <div class="col-sm-12">
+            @Html.TextBoxFor(m => m.Name, new { @class = "form-control", placeholder = "Write your Name" })
+            @Html.ValidationMessageFor(m => m.Name)
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Email, new { @class = " form-control-label" })
+
+        <div class="col-sm-12">
+            @Html.TextBoxFor(m => m.Email, new { @class = "form-control", placeholder = "Write your Email Address" })
+            @Html.ValidationMessageFor(m => m.Email)
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Subject, new { @class = "form-control-label" })
+
+        <div class="col-sm-12">
+            @Html.TextBoxFor(m => m.Subject, new { @class = "form-control", placeholder = "Subject" })
+            @Html.ValidationMessageFor(m => m.Subject)
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Message, new { @class = " form-control-label" })
+
+        <div class="col-sm-12">
+            @Html.TextAreaFor(m => m.Message, new { @class = "form-control from-control-textarea", placeholder = "Your Message" })
+            @Html.ValidationMessageFor(m => m.Message)
+        </div>
+    </div>
+    <div class="form-group">
+        <button class="btn btn-footer" type="submit">Send</button>
+    </div>
+    }
+}
+else
+{
+    <div class="form-respons">
+        <div class="form-respons-thanks">
+            <p><span class="form-respons-thanks-you">Thank You</span> We will get in cantact soon.</p>
+        </div>
+    </div>
+
+}

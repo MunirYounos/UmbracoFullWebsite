@@ -1,0 +1,91 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage<ContentModels.Members>
+@using ContentModels = Umbraco.Web.PublishedContentModels;
+@using Newtonsoft.Json;
+@using Umbraco.Web.Models;
+@{
+    Layout = "MasterPage.cshtml";
+
+    var memberService = ApplicationContext.Current.Services.MemberService;
+    var activemembers = memberService.GetMembersByGroup("Active");
+    var guestmembers = memberService.GetMembersByGroup("Guest");
+}
+
+ 
+        <div class="container">
+            <div class="rows">
+                <div class="member">
+                    <h1 class="member__wrap-title">@CurrentPage.Name</h1>
+
+                        <div class="member__wrap col-md-6">
+
+
+                            @foreach (var member in activemembers)
+                            {
+
+                                <div class="member__wrap-box">
+
+                                    @if (member.GetValue("photo") != null)
+                                    {
+                                        string image = member.GetValue<string>("photo");
+                                        if (image != null)
+                                        {
+                                            ImageCropDataSet imageCrop = JsonConvert.DeserializeObject<ImageCropDataSet>(image);
+                                            string imagePath = imageCrop.Src.GetCropUrl(width: 80);
+                                            <img class="member__wrap-box-pic" src="@imagePath" alt="@member.Name" />
+                                        }
+                                    }
+
+                                    else
+                                    {
+                                        //default
+                                        <img class="member__wrap-box-avatar" src="~/content/CSS/img/avatar.png" width=80 />
+                                    }
+
+                                
+                                    <div class="member__wrap-box-body">
+                                        <h3 class="member__wrap-box-name">@member.Name</h3>
+                                        <strong>Address: </strong>@member.GetValue("address")<span>, </span>@member.GetValue("zip") @member.GetValue("city") <br />
+                                        <strong>Email: </strong> @member.Email<br />
+                                        <p>@member.GetValue("skills")</p>
+
+                                    </div>
+                                </div>
+                            }
+                        </div>
+
+                        <div class="member__wrap col-sm-12 col-md-6">
+                            @foreach (var member in guestmembers)
+                            {
+                                <div class="member__wrap-box">
+                                    @if (member.GetValue("photo") != null)
+                                    {
+
+                                        string image = member.GetValue<string>("photo");
+                                        if (image != null)
+                                        {
+                                            ImageCropDataSet imageCrop = JsonConvert.DeserializeObject<ImageCropDataSet>(image);
+                                            string imagePath = imageCrop.Src.GetCropUrl(width: 100);
+                                            <img class="member__wrap-box-pic" src="@imagePath" alt="@member.Name" />
+                                        }
+                                    }
+                                    else
+                                    {
+                                        //testing if there will be changes from "master" branch :)
+                                        <img class="member__wrap-box-default" src="~/Content/CSS/img/avatar.png" width="80" />
+                                    }
+
+                                  
+                                    <div class="member__wrap-box-body">
+                                        <h3 class="member__wrap-box-name">@member.Name</h3>
+                                        <strong>Email: </strong> @member.Email<br />
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+              </div>
+
+    </div>
+
+
+

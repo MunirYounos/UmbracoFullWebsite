@@ -1,0 +1,30 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage<ContentModels.ProjectItem>
+@using ContentModels = Umbraco.Web.PublishedContentModels;
+@{
+    Layout = "MasterPage.cshtml";
+}
+<div class="container">
+    <div class="row">
+        <div class="blog">
+            <div class="blog-post">
+
+     
+                <div class="blog-post-image">
+                    @{ 
+                        var proImage = Model.Content.GetPropertyValue<IPublishedContent>("proImage");
+                        if (proImage !=null)
+                        {
+                           <img src = "@(proImage.Url)? width=800&height=400&mode=crop&anchor=center" alt = "@Model.Content.ProTitle" class="blog-post-image-self" />
+                        }
+                    }
+
+                </div>
+
+                <h2 class="blog-post-title">@Model.Content.ProTitle</h2>
+                <div class="blog-post-body">
+                    <p>@Model.Content.ProDescription</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

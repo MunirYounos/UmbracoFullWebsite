@@ -1,0 +1,103 @@
+
+/*Projects styles*/
+
+.projects {
+    &-mainTitle {
+        font-size: 2.5rem;
+        margin-top: 2rem;
+        padding: 2rem 0;
+        font-weight: 900;
+        text-transform: uppercase;
+        text-align: center;
+        color: $mainColor;
+
+        & p {
+            text-align: center;
+            font-weight: 900;
+        }
+    }
+
+    &-main {
+        margin: 0rem;
+        padding: 0rem;
+        box-sizing: border-box;
+        transition: 1s ease all;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+    &-contain {
+        padding: .5rem;
+    }
+
+    &-wrap {
+        background: $white;
+        border: 1rem solid $white;
+        margin-bottom: .5rem;
+        box-sizing: border-box;
+        @include shadow;
+    }
+
+    &-top {
+        overflow: hidden;
+    }
+
+    &-body {
+        position: absolute;
+        top: .5rem;
+        left: .5rem;
+        padding: 1rem;
+        color: $white;
+        z-index: 33;
+
+        &-title {
+            color: $white;
+            padding: 2rem 3rem;
+            text-transform: uppercase;
+            font-size: 1.4rem;
+            font-weight: 700;
+        }
+
+        &-text {
+            color: $white;
+            padding: 1rem 3rem;
+            font-size: 1.2rem;
+        }
+
+        &-link {
+            color: $white;
+            border: 1px solid $rose;
+            font-size: 2.2rem;
+            padding: 0rem 1.5rem;
+            margin: 3rem 0rem 0rem 3rem;
+            transition: .5s ease-in-out all;
+
+            &:hover {
+                background: $rose;
+            }
+        }
+    }
+
+    &-overlay {
+        position: relative;
+        top: 1rem;
+        left: 1rem;
+        opacity: 0;
+        width: 26rem;
+        height: 20rem;
+        background: rgba($mainColor, 0.8);
+        transition: .5s ease-in-out all;
+
+        @include mq(sm) {
+            top: 5rem;
+            left: 3rem;
+            width: 30rem;
+        }
+
+        &:hover {
+            opacity: 1;
+        }
+    }
+}

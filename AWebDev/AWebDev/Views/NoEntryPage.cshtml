@@ -1,0 +1,27 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage<ContentModels.NoEntryPage>
+@using ContentModels = Umbraco.Web.PublishedContentModels;
+@{
+	Layout = "MasterPage.cshtml";
+}
+<div class="container">
+    <div class="rows">
+        <div class="login">
+            <div class="prelogin">
+                <h2 class="prelogin__ban">
+                   
+                       <i class="fa fa-ban"></i> @CurrentPage.Name
+                   
+                </h2>
+                
+                <br />
+           
+                <strong class="prelogin__ban-info">This means that You are not allowed to have access to see this section, contact someone!</strong><br />
+                <br />
+                <br />
+                <strong class="prelogin__ban-info">Your current login details are: </strong>
+
+                @Html.Partial("loginForm")
+            </div>
+        </div>
+    </div>
+</div>

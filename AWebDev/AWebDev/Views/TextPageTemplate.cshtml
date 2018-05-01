@@ -1,0 +1,28 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage<TextPageTemplate>
+
+@using Umbraco.Web
+@using ContentModels = Umbraco.Web.PublishedContentModels;
+@{
+	Layout = "MasterPage.cshtml";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="about">
+            <div class="about-wrap">
+
+                @{ 
+                    var aboutImage = Model.Content.Image;
+                    if(aboutImage != null)
+                    {
+                        <img class="about-wrap-image" src="@aboutImage.Url" alt="about image" />
+                    }
+                }
+                <h2 class="about-main">@Model.Content.GetPropertyValue("title")</h2>
+                <div class="about-promo">@Umbraco.Field("bodyText")</div>
+                <div class="about-qoute col-sm-6 col-md-4"><i class="about-qoute-icon fa fa-quote-left"></i><br />@Model.Content.Qoute</div>
+                <div class="about-qoute col-sm-6 col-md-4"><i class="about-qoute-icon fa fa-quote-left"></i><br />@Model.Content.Qoute</div>
+            </div>
+        </div>
+    </div>
+</div>

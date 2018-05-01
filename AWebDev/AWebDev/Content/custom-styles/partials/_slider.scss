@@ -1,0 +1,303 @@
+
+
+/**
+ * Slider
+ **/
+.slider {
+    z-index:0;
+    background: $offwhite;
+    display: block;
+    width: 100%;
+    position: relative;
+    margin: .1rem 0rem .5rem 0rem;
+    @include mq($until: sm){
+        display: none !important;
+     }
+    &__list {
+        width: 100%;
+    }
+
+    &__cta {
+        display: block;
+        padding-bottom: 8.4rem;
+        max-width: 600px;
+        position: absolute;
+        top: 10%;
+        left: 5%;
+        z-index: 12;
+
+        @include mq($until: xs) {
+            display: none;
+        }
+
+        &-btn {
+            color: $white;
+            border: 1px solid $rose;
+            padding: 1.4rem 2.2rem;
+            margin-top: 3rem;
+            font-weight: 100;
+            border-radius: 0px;
+            transition: .5s ease-in-out all;
+
+            &:hover {
+                background: $rose;
+                border: 1px solid $white;
+            }
+        }
+
+        &-title {
+            font-size: 3.5rem;
+            padding-top: 6rem;
+            padding-bottom: 4rem;
+            font-weight: 700;
+            display: block;
+            word-wrap: break-word;
+            text-transform: uppercase;
+            width: 100%;
+            color: $white;
+
+            @include mq($until: md) {
+                font-size: 2.4rem;
+                padding-top: 3rem;
+                padding-bottom: 2rem;
+            }
+        }
+
+        &-caption {
+            font-size: 1.4rem;
+            font-weight: 100;
+            letter-spacing: .1rem;
+            padding-left: 10rem;
+            color: $offwhite;
+            background: transparent;
+            z-index: 12;
+
+            @include mq($until: md) {
+                padding-left: 2rem;
+            }
+        }
+    }
+
+
+    &__wrap {
+        position: relative;
+        width: 100%;
+        border: 1rem solid $white;
+    }
+
+
+    &__item {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 255;
+        width: 100%;
+        overflow: hidden;
+        box-sizing: border-box;
+        background: no-repeat center center;
+        background-size: cover;
+        padding-bottom: 0rem;
+
+        & img {
+            width: 100%;
+            z-index: 0;
+        }
+
+        &-imgOverlay {
+            position: absolute;
+            top: 0rem;
+            left: 0rem;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            background-color: rgba($mainColor, .8);
+        }
+
+        &:before {
+            content: '';
+            display: block;
+            height: 0;
+            padding-bottom: 40%;
+
+            @include mq(lg) {
+                padding-bottom: 50rem;
+            }
+        }
+    }
+
+    &__inner {
+    }
+
+    &__caption {
+    }
+}
+
+/**
+ * Owl Carousel core
+ **/
+
+.is-slider {
+	width: 100%;
+	-webkit-tap-highlight-color: transparent;
+	position: relative;
+	z-index: 1;
+
+	.owl-stage {
+		position: relative;
+		-ms-touch-action: pan-Y;
+
+		&:after {
+			content: '';
+			display: block;
+			clear: both;
+			visibility: hidden;
+			line-height: 0;
+			height: 0;
+		}
+
+		&-outer {
+			position: relative;
+			overflow: hidden;
+			-webkit-transform: translate3d(0, 0, 0);
+		}
+	}
+
+	.owl-item {
+		position: relative;
+		min-height: 1px;
+		float: left;
+		width: 100%;
+		-webkit-backface-visibility: hidden;
+		-webkit-tap-highlight-color: transparent;
+		-webkit-touch-callout: none;
+		-webkit-transform: translate3d(0,0,0);
+	}
+
+	// Navigation
+	.owl-nav.disabled,
+	.owl-dots.disabled {
+		display: none;
+	}
+
+	.owl-nav{
+		display: block;
+		width: 100%;
+		position: absolute;
+		top: 42%;
+		left: 0;
+	}
+	.owl-nav .owl-prev,.owl-nav .owl-next{
+		display: inline-block;
+		font-size: 2.6rem;
+		font-weight: 100;
+		background: $offwhite;
+		color: $gold_dark;
+		cursor:pointer;
+		padding: 1.2rem 2.8rem;
+		border-radius: 50%;
+		transition: 1s ease all;
+		&:hover{
+			background: lighten($offwhite,15%);
+		}
+
+		@include mq($until: xs){
+			padding: .3rem 1.4rem;
+			font-size: 1.8rem;
+		}
+
+	}
+  .owl-nav .owl-next{
+		float: right;
+		margin-right: -4rem;
+		@include mq($until: xs){
+			margin-right: -4rem;
+		}
+	}
+  .owl-nav .owl-prev{
+		margin-left: -4rem;
+		@include mq($until: xs){
+			margin-left: -4rem;
+		}
+	}
+	.owl-dot {
+		cursor: pointer;
+		cursor: hand;
+		-webkit-user-select: none;
+		-khtml-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+		user-select: none;
+	}
+
+	// States
+	&.owl-loaded {
+		display: block;
+	}
+
+	&.owl-loading {
+		opacity: 0;
+		display: block;
+	}
+
+	&.owl-hidden {
+		opacity: 0;
+	}
+
+	&.owl-refresh .owl-item {
+		display: none;
+	}
+
+	&.owl-drag .owl-item {
+		-webkit-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+		user-select: none;
+	}
+
+	&.owl-grab {
+		cursor: move;
+		cursor: grab;
+	}
+
+	&.owl-rtl {
+		direction: rtl;
+	}
+
+	&.owl-rtl .owl-item {
+		float: right;
+	}
+
+	/**
+	 * Animations
+	 **/
+
+	 // Defaults
+	.animated {
+		animation-duration: 1000ms;
+		animation-fill-mode: both;
+	}
+
+	.owl-animated-in {
+		z-index: 0;
+	}
+
+	.owl-animated-out {
+		z-index: 1;
+	}
+
+	.fadeOut {
+		animation-name: fadeOut;
+	}
+
+	@at-root {
+		@keyframes fadeOut {
+			0% {
+				opacity: 1;
+			}
+
+			100% {
+				opacity: 0;
+			}
+		}
+	}
+}

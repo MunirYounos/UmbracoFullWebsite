@@ -1,0 +1,72 @@
+/*contactform*/
+
+.form {
+    display: block;
+    width: 100%;
+    background: $white;
+    padding: 5rem;
+    border: .4rem solid $mainColor;
+
+    &-group {
+        margin: 1rem 0rem;
+    }
+
+
+
+    &-control {
+        height: 5rem;
+        width: 100%;
+        border:.1rem solid $rose;
+        padding: .5rem 4rem .1rem 0rem;
+        color: darken($offwhite, 50%);
+        font-family: $heading;
+        margin: 1rem 0rem;
+
+        & placeholder{
+            color: $offwhite;
+        }
+
+        &-label {
+            padding: 1.5rem;
+        }
+
+        &-textarea {
+            min-height: 18rem;
+        }
+    }
+
+    &-respons{
+        display: block;
+        width: 100%;
+        background-color: $white;
+        padding: 6rem 2rem;
+        border: .4rem solid $mainColor;
+        &-thanks{
+            text-align: center;
+            font-size: 4.5rem;
+            color: $rose;
+            padding: 5rem 2rem;
+            text-transform: uppercase;
+            &-you{
+                background: $offwhite;
+                padding: .5rem 1rem;
+            }
+        }
+
+    }
+}
+
+.field-validation-error{
+    color: $danger;
+}
+
+input, textarea{
+    padding: 2rem !important;
+
+}
+
+textarea{
+
+    overflow: auto;
+  
+}

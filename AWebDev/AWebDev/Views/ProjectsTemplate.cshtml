@@ -1,0 +1,29 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage<ContentModels.ProjectsTemplate>
+@using ContentModels = Umbraco.Web.PublishedContentModels;
+@{
+	Layout = "MasterPage.cshtml";
+}
+
+@* the fun starts here *@
+
+<section class="projectHead" id="projects">
+    <div class="container">
+        <div class="blog-page">
+
+            @{
+                var proImage = Model.Content.ProjectPageImage;
+                if (proImage != null)
+                {
+                    <img class="about-wrap-image" src="@proImage.Url" alt="project image" />
+                }
+            }
+            <h2 class="blog-page-mainTitle">@Model.Content.ProjectPageTitle</h2>
+            <div class="blog-page-bodyText">@Model.Content.ProjectPageSubTitle</div>
+        </div>
+        <div class="row">
+            <div class="projects-main">
+                @Html.Partial("ProjectItems")
+            </div>
+        </div>
+    </div>
+</section>

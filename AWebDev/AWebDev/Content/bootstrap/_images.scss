@@ -1,0 +1,53 @@
+﻿
+
+/**
+ * Media and images
+ **/
+/**
+ * Semi responsive images
+ **/
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    min-height: .1rem;
+    line-height: 0;
+    border: none;
+    vertical-align: middle;
+    -ms-interpolation-mode: bicubic;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+/**
+ * Backgrounds
+ **/
+.bg--cover {
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.bg--contain {
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+/**
+ * Media wrappers
+ **/
+.media--16-9 {
+    overflow: hidden;
+    position: relative;
+    height: 0;
+    padding-bottom: 56.25%;
+}
+
+.media--16-9 > * {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
